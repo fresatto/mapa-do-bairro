@@ -17,9 +17,9 @@ class Lista extends Component {
             handleFilter(e.target.value)
           }}
         />
-        <ul>
+        <ul role="menubar">
           {locationsFiltered.map(location => (
-            <li onClick={() => itemClick(location)} key={location.id}>
+            <li onClick={() => itemClick(location)} key={location.id} role="menuitem">
               {location.name}
               <address>
                 {location.location.address

@@ -12,6 +12,7 @@ export function load_google_maps() {
     const API_KEY = 'AIzaSyC1qO6hXPMRMb18lzakAa7ALghBm8F76q0'
     script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=resolveGoogleMapsPromise`
     script.async = true
+    script.onerror = () => reject({ error: true })
     document.body.appendChild(script)
   })
 }
@@ -24,7 +25,5 @@ export function fetchPlaces() {
   )
     .then(response => response.json())
     .then(data => data)
-    .catch(erro =>
-      window.alert('Infelizmente a requisição falhou. Devido ao erro: ' + erro)
-    )
+    .catch(erro => alert(erro))
 }
